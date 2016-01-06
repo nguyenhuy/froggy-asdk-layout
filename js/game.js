@@ -255,12 +255,25 @@ var game = {
 
   applyStyles: function() {
     var level = levels[game.level];
-    var code = $('#code').val();
+    var nativeCode = $('#code').val();
+    var jsCode = game.parseNativeCode(nativeCode);
     var selector = level.selector || '';
-    $('#pond ' +  selector).attr('style', code);
+    $('#pond ' +  selector).attr('style', jsCode);
     game.saveAnswer();
   },
 
+  parseNativeCode: function(nativeCode) {
+    var re = /[a-zA-Z]+\.([a-zA-Z]+)\s*=\s*([a-zA-Z]+);/;
+    var jsCode = '';
+    var matches = re.exec(nativeCode);
+    if (matches !== null && matches.length === 3) {
+      var property = nativeToJSMap[matches[1]];
+      var value = nativeToJSMap[matches[2]];
+      jsCode = property + ': ' + value + ';';
+    }
+    return jsCode;
+  },
+  
   check: function(level) {
     if (typeof level === 'undefined') {
       level = levels[game.level];

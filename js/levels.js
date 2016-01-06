@@ -1,18 +1,18 @@
 var levels = [
   {
-    name: 'justify-content 1',
+    name: 'ASStackLayoutJustifyContent 1',
     instructions: {
-      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing CSS code! Guide this frog to the lilypad on the right by using the <code>justify-content</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the left side of the container.</li><li><code>flex-end</code>: Items align to the right side of the container.</li><li><code>center</code>: Items align at the center of the container.</li><li><code>space-between</code>: Items display with equal spacing between them.</li><li><code>space-around</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>justify-content: flex-end;</code> will move the frog to the right.</p>'
+      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing AsyncDisplayKit layout code! Guide this frog to the lilypad on the right by using the <code>ASStackLayoutJustifyContent</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>stack.justifyContent = ASStackLayoutJustifyContentEnd;</code> will move the frog to the right.</p>'
     },
     board: 'g',
     style: {'justify-content': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog];"
   },
   {
     name: 'justify-content 2',
     instructions: {
-      'en': '<p>Use <code>justify-content</code> again to help these frogs get to their lilypads. Remember that this CSS property aligns items horizontally and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the left side of the container.</li><li><code>flex-end</code>: Items align to the right side of the container.</li><li><code>center</code>: Items align at the center of the container.</li><li><code>space-between</code>: Items display with equal spacing between them.</li><li><code>space-around</code>: Items display with equal spacing around them.</li></ul>'
+      'en': '<p>Use <code>justify-content</code> again to help these frogs get to their lilypads. Remember that this CSS property aligns items horizontally and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the left side of the stack.</li><li><code>flex-end</code>: Items align to the right side of the stack.</li><li><code>center</code>: Items align at the center of the stack.</li><li><code>space-between</code>: Items display with equal spacing between them.</li><li><code>space-around</code>: Items display with equal spacing around them.</li></ul>'
     },
     board: 'gy',
     style: {'justify-content': 'center'},
@@ -42,7 +42,7 @@ var levels = [
   {
     name: 'align-items 1',
     instructions: {
-      'en': '<p>Now use <code>align-items</code> to help the frogs get to the bottom of the pond. This CSS property aligns items vertically and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the top of the container.</li><li><code>flex-end</code>: Items align to the bottom of the container.</li><li><code>center</code>: Items align at the vertical center of the container.</li><li><code>baseline</code>: Items display at the baseline of the container.</li><li><code>stretch</code>: Items are stretched to fit the container.</li></ul>'
+      'en': '<p>Now use <code>align-items</code> to help the frogs get to the bottom of the pond. This CSS property aligns items vertically and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the top of the stack.</li><li><code>flex-end</code>: Items align to the bottom of the stack.</li><li><code>center</code>: Items align at the vertical center of the stack.</li><li><code>baseline</code>: Items display at the baseline of the stack.</li><li><code>stretch</code>: Items are stretched to fit the stack.</li></ul>'
     },
     board: 'gyr',
     style: {'align-items': 'flex-end'},
@@ -72,7 +72,7 @@ var levels = [
   {
     name: 'flex-direction 1',
     instructions: {
-      'en': '<p>The frogs need to get in the same order as their lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the container, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
+      'en': '<p>The frogs need to get in the same order as their lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the stack, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
     },
     board: 'gyr',
     style: {'flex-direction': 'row-reverse'},
@@ -82,7 +82,7 @@ var levels = [
   {
     name: 'flex-direction 2',
     instructions: {
-      'en': '<p>Help the frogs find their column of lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the container, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
+      'en': '<p>Help the frogs find their column of lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the stack, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
     },
     board: 'gyr',
     style: {'flex-direction': 'column'},
@@ -132,7 +132,7 @@ var levels = [
   {
     name: 'order 1',
     instructions: {
-      'en': '<p>Sometimes reversing the row or column order of a container is not enough. In these cases, we can apply the <code>order</code> property to individual items. By default, items have a value of 0, but we can use this property to set it to a positive or negative integer value.</p><p>Use the <code>order</code> property to reorder the frogs according to their lilypads.</p>'
+      'en': '<p>Sometimes reversing the row or column order of a stack is not enough. In these cases, we can apply the <code>order</code> property to individual items. By default, items have a value of 0, but we can use this property to set it to a positive or negative integer value.</p><p>Use the <code>order</code> property to reorder the frogs according to their lilypads.</p>'
     },
     board: 'gyr',
     selector: '> :nth-child(2)',
@@ -208,7 +208,7 @@ var levels = [
   {
     name: 'align-content 1',
     instructions: {
-      'en': '<p>The frogs are spread all over the pond, but the lilypads are bunched at the top. You can use <code>align-content</code> to set how multiple lines are spaced apart from each other. This property takes the following values:</p><ul><li><code>flex-start</code>: Lines are packed at the top of the container.</li><li><code>flex-end</code>: Lines are packed at the bottom of the container.</li><li><code>center</code>: Lines are packed at the vertical center of the container.</li><li><code>space-between</code>: Lines display with equal spacing between them.</li><li><code>space-around</code>: Lines display with equal spacing around them.</li><li><code>stretch</code>: Lines are stretched to fit the container.</li></ul><p>This can be confusing, but <code>align-content</code> determines the spacing between lines, while <code>align-items</code> determines how the items as a whole are aligned within the container. When there is only one line, <code>align-content</code> has no effect.</p>'
+      'en': '<p>The frogs are spread all over the pond, but the lilypads are bunched at the top. You can use <code>align-content</code> to set how multiple lines are spaced apart from each other. This property takes the following values:</p><ul><li><code>flex-start</code>: Lines are packed at the top of the stack.</li><li><code>flex-end</code>: Lines are packed at the bottom of the stack.</li><li><code>center</code>: Lines are packed at the vertical center of the stack.</li><li><code>space-between</code>: Lines display with equal spacing between them.</li><li><code>space-around</code>: Lines display with equal spacing around them.</li><li><code>stretch</code>: Lines are stretched to fit the stack.</li></ul><p>This can be confusing, but <code>align-content</code> determines the spacing between lines, while <code>align-items</code> determines how the items as a whole are aligned within the stack. When there is only one line, <code>align-content</code> has no effect.</p>'
     },
     board: 'ggggggggggggggg',
     classes: {'#pond, #background': 'wrap'},
