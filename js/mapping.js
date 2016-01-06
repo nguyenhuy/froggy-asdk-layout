@@ -16,10 +16,11 @@ var nativeToJSMap = {
 	"ASStackLayoutAlignSelfEnd": "flex-end", 
 	"ASStackLayoutAlignSelfCenter": "center", 
 	"ASStackLayoutAlignSelfStretch": "stretch", 
-	//Warning: 'align-self: baseline' has no ASDK counterpart
-
-	"ASStackLayoutDirectionVertical": "row", 
-	"ASStackLayoutDirectionHorizontal": "column",
+	"ASStackLayoutAlignSelfBaselineFirst": "baseline", //Warning: inexact mapping, there may be mismath behaviours
+	"ASStackLayoutAlignSelfBaselineLast": "baseline", //Warning: inexact mapping, there may be mismath behaviours
+	
+	"ASStackLayoutDirectionHorizontal": "row",
+	"ASStackLayoutDirectionVertical": "column", 
 	//Warning: 'flex-direction: row-reverse' and 'flex-direction: column-reverse' have no ASDK counterparts
 
 	"ASStackLayoutJustifyContentStart": "flex-start", 

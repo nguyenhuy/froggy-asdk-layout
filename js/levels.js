@@ -80,44 +80,34 @@ var levels = [
     after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'flex-direction 3',
+    name: 'ASStackLayoutDirection 2',
     instructions: {
-      'en': '<p>Help the frogs get to their own lilypads. Although they seem close, it will take both <code>flex-direction</code> and <code>justify-content</code> to get them there.</p><p>Notice that when you set the direction to a reversed row or column, start and end are also reversed.</p>'
-    },
-    board: 'gyr',
-    style: {'flex-direction': 'row-reverse', 'justify-content': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
-  },
-  {
-    name: 'flex-direction 4',
-    instructions: {
-      'en': '<p>Help the frogs find their lilypads using <code>flex-direction</code> and <code>justify-content</code>.</p><p>Notice that when the flex direction is a column, <code>justify-content</code> changes to the vertical and <code>align-items</code> to the horizontal.</p>'
+      'en': '<p>Help the frogs find their lilypads using <code>direction</code> and <code>justifyContent</code>.</p><p>Notice that when the direction is horizontal, <code>justifyContent</code> changes to the vertical and <code>alignItems</code> to the horizontal.</p>'
     },
     board: 'gyr',
     style: {'flex-direction': 'column', 'justify-content': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'flex-direction 5',
+    name: 'ASStackLayoutDirection 5',
     instructions: {
-      'en': '<p>Help the frogs find their lilypads using <code>flex-direction</code> and <code>justify-content</code>.</p>'
+      'en': '<p>Help the frogs find their lilypads using <code>direction</code> and <code>justifyContent</code>.</p>'
     },
     board: 'gyr',
-    style: {'flex-direction': 'column-reverse', 'justify-content': 'space-between'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    style: {'flex-direction': 'column', 'justify-content': 'space-between'},
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'flex-direction 6',
+    name: 'ASStackLayoutDirection 6',
     instructions: {
-      'en': '<p>Help the frogs find their lilypads using <code>flex-direction</code>, <code>justify-content</code>, and <code>align-items</code>.</p>'
+      'en': '<p>Help the frogs find their lilypads using <code>direction</code>, <code>justifyContent</code>, and <code>alignItems</code>.</p>'
     },
     board: 'gyr',
-    style: {'flex-direction': 'row-reverse', 'justify-content': 'center', 'align-items': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    style: {'flex-direction': 'column', 'justify-content': 'center', 'align-items': 'flex-end'},
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
     name: 'order 1',
