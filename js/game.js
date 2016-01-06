@@ -192,7 +192,9 @@ var game = {
 
     this.loadDocs();
 
-    var lines = Object.keys(level.style).length;
+    var numOfStyles = Object.keys(level.style).length;
+    var numOfSelectors = Object.keys(level.objectToSelectorMap || {}).length;
+    var lines = Math.max(numOfStyles, numOfSelectors);
     $('#code').height(20 * lines).data("lines", lines);
 
     var string = level.board;
@@ -256,25 +258,31 @@ var game = {
   applyStyles: function() {
     var level = levels[game.level];
     var nativeCode = $('#code').val();
-    var jsCode = game.parseNativeCode(nativeCode);
-    var selector = level.selector || '';
-    $('#pond ' +  selector).attr('style', jsCode);
+    var objectStyles = game.parseNativeCode(nativeCode);
+    var map = level.objectToSelectorMap || {};
+    objectStyles.forEach(function (objectStyle) {
+      var selector = map[objectStyle.object] || '';
+      var element = $('#pond ' +  selector);
+      var currentStyle = element.attr('style');
+      element.attr('style', currentStyle + objectStyle.style);
+    });
     game.saveAnswer();
   },
 
   parseNativeCode: function(nativeCode) {
-    var jsCode = '';
+    var objectStyles = [];
     var lines = nativeCode.split(/\r?\n/);
     lines.forEach(function(line) {
-      var re = /[a-zA-Z]+\.([a-zA-Z]+)\s*=\s*([a-zA-Z]+);/;
+      var re = /([a-zA-Z0-9]+)\.([a-zA-Z]+)\s*=\s*([a-zA-Z]+);/;
       var matches = re.exec(line);
-      if (matches !== null && matches.length === 3) {
-        var property = nativeToJSMap[matches[1]];
-        var value = nativeToJSMap[matches[2]];
-        jsCode += property + ': ' + value + ';';
+      if (matches !== null && matches.length === 4) {
+        var object = matches[1];
+        var property = nativeToJSMap[matches[2]];
+        var value = nativeToJSMap[matches[3]];
+        objectStyles.push({object: object, style: property + ': ' + value + ';'});
       }
     });
-    return jsCode;
+    return objectStyles;
   },
   
   check: function(level) {
