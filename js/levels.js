@@ -2,7 +2,7 @@ var levels = [
   {
     name: 'ASStackLayoutJustifyContent 1',
     instructions: {
-      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing AsyncDisplayKit layout code! Guide this frog to the lilypad on the right by using the <code>justifyContent</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>stack.justifyContent = ASStackLayoutJustifyContentEnd;</code> will move the frog to the right.</p>'
+      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing AsyncDisplayKit layout code! Guide this frog to the lilypad on the right by using the <code>justifyContent</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween</code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>stack.justifyContent = ASStackLayoutJustifyContentEnd;</code> will move the frog to the right.</p>'
     },
     board: 'g',
     style: {'justify-content': 'flex-end'},
@@ -12,7 +12,7 @@ var levels = [
   {
     name: 'ASStackLayoutJustifyContent 2',
     instructions: {
-      'en': '<p>Use <code>justifyContent</code> again to help these frogs get to their lilypads. Remember that this property aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul>'
+      'en': '<p>Use <code>justifyContent</code> again to help these frogs get to their lilypads. Remember that this property aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween</code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul>'
     },
     board: 'gy',
     style: {'justify-content': 'center'},
@@ -110,123 +110,28 @@ var levels = [
     after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'order 1',
+    name: 'ASStackLayoutAlignSelf 1',
     instructions: {
-      'en': '<p>Sometimes reversing the row or column order of a stack is not enough. In these cases, we can apply the <code>order</code> property to individual items. By default, items have a value of 0, but we can use this property to set it to a positive or negative integer value.</p><p>Use the <code>order</code> property to reorder the frogs according to their lilypads.</p>'
-    },
-    board: 'gyr',
-    selector: '> :nth-child(2)',
-    classes: {'#pond, #background': 'wrap'},
-    style: {'order': '2'},
-    before: "#pond {\n  display: flex;\n}\n\n.yellow {\n",
-    after: "}"
-  },
-  {
-    name: 'order 2',
-    instructions: {
-      'en': '<p>Use the <code>order</code> property to send the red frog to his lilypad.</p>'
-    },
-    board: 'gggrg',
-    selector: '> :nth-child(4)',
-    classes: {'#pond, #background': 'wrap'},
-    style: {'order': '-1'},
-    before: "#pond {\n  display: flex;\n}\n\n.red {\n",
-    after: "}"
-  },
-  {
-    name: 'align-self 1',
-    instructions: {
-      'en': '<p>Another property you can apply to individual items is <code>align-self</code>. This property accepts the same values as <code>align-items</code> and its value for the specific item.</p>'
+      'en': '<p>Another property you can apply to individual items is <code>alignSelf</code>. This property can override the alignItems property of the parent stack and accepts the following values:</p><ul><li><code>ASStackLayoutAlignSelfAuto</code>: Inherit alignment value from containing stack.</li><li><code>ASStackLayoutAlignSelfStart</code>: Align to start of cross axis.</li><li><code>ASStackLayoutAlignSelfEnd</code>: Align to end of cross axis.</li><li><code>ASStackLayoutAlignSelfCenter</code>: Center on cross axis.</li><li><code>ASStackLayoutAlignSelfStretch</code>: Expand to fill cross axis.</li><li><code>ASStackLayoutAlignSelfBaselineFirst</code>: align to the first baseline of the stack.</li><li><code>ASStackLayoutAlignSelfBaselineLast</code>: align to the last baseline of the stack.</li></ul>'
     },
     board: 'ggygg',
     selector: '> :nth-child(3)',
     style: {'align-self': 'flex-end'},
-    before: "#pond {\n  display: flex;\n  align-items: flex-start;\n}\n\n.yellow {\n",
-    after: "}"
+    objectToSelectorMap: {'yellowFrog': '> :nth-child(3)'},
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n  stack.alignItems = ASStackLayoutAlignItemsStart;\n  stack.children = @[greenFrog1, greenFrog2, yellowFrog, redFrog1, redFrog2];\n\n",
+    after: ""
   },
   {
-    name: 'align-self 2',
+    name: 'ASStackLayoutAlignSelf 2',
     instructions: {
-      'en': '<p>Combine <code>order</code> with <code>align-self</code> to help the frogs to their destinations.</p>'
+      'en': '<p>Use <code>alignSelf</code> to help the frogs to their destinations.</p>'
     },
-    board: 'ygygg',
+    board: 'gyggy',
     selector: '> .yellow',
-    style: {'align-self': 'flex-end', 'order': '2'},
-    before: "#pond {\n  display: flex;\n  align-items: flex-start;\n}\n\n.yellow {\n",
-    after: "}"
-  },
-  {
-    name: 'flex-wrap 1',
-    instructions: {
-      'en': '<p>Oh no! The frogs are all squeezed onto a single row of lilypads. Spread them out using the <code>flex-wrap</code> property, which accepts the following values:</p><ul><li><code>nowrap</code>: Every item is fit to a single line.</li><li><code>wrap</code>: Items wrap around to additional lines.</li><li><code>wrap-reverse</code>: Items wrap around to additional lines in reverse.</li></ul>'
-    },
-    board: 'ygggggr',
-    style: {'flex-wrap': 'wrap'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
-  },
-  {
-    name: 'flex-wrap 2',
-    instructions: {
-      'en': '<p>Help this army of frogs form three orderly columns using a combination of <code>flex-direction</code> and <code>flex-wrap</code>.</p>'
-    },
-    board: 'gggggrrrrryyyyy',
-    style: {'flex-direction': 'column', 'flex-wrap': 'wrap'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
-  },
-  {
-    name: 'flex-flow 1',
-    instructions: {
-      'en': '<p>The two properties <code>flex-direction</code> and <code>flex-wrap</code> are used so often together that the shorthand property <code>flex-flow</code> was created to combine them. This shorthand property accepts the value of one of the two properties separated by a space.</p><p>For example, you can use <code>flex-flow: row wrap</code> to set rows and wrap them.</p><p>Try using <code>flex-flow</code> to repeat the previous level.</p>'
-    },
-    board: 'gggggrrrrryyyyy',
-    style: {'flex-flow': 'column wrap'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
-  },
-  {
-    name: 'align-content 1',
-    instructions: {
-      'en': '<p>The frogs are spread all over the pond, but the lilypads are bunched at the top. You can use <code>align-content</code> to set how multiple lines are spaced apart from each other. This property takes the following values:</p><ul><li><code>flex-start</code>: Lines are packed at the top of the stack.</li><li><code>flex-end</code>: Lines are packed at the bottom of the stack.</li><li><code>center</code>: Lines are packed at the vertical center of the stack.</li><li><code>space-between</code>: Lines display with equal spacing between them.</li><li><code>space-around</code>: Lines display with equal spacing around them.</li><li><code>stretch</code>: Lines are stretched to fit the stack.</li></ul><p>This can be confusing, but <code>align-content</code> determines the spacing between lines, while <code>align-items</code> determines how the items as a whole are aligned within the stack. When there is only one line, <code>align-content</code> has no effect.</p>'
-    },
-    board: 'ggggggggggggggg',
-    classes: {'#pond, #background': 'wrap'},
-    style: {'align-content': 'flex-start'},
-    before: "#pond {\n  display: flex;\n  flex-wrap: wrap;\n",
-    after: "}"
-  },
-  {
-    name: 'align-content 2',
-    instructions: {
-      'en': '<p>Now the current has bunched the lilypads at the bottom. Use <code>align-content</code> to guide the frogs there.</p>'
-    },
-    board: 'ggggggggggggggg',
-    classes: {'#pond, #background': 'wrap'},
-    style: {'align-content': 'flex-end'},
-    before: "#pond {\n  display: flex;\n  flex-wrap: wrap;\n",
-    after: "}"
-  },
-  {
-    name: 'align-content 3',
-    instructions: {
-      'en': '<p>The frogs have had a party, but it is time to go home. Use a combination of <code>flex-direction</code> and <code>align-content</code> to get them to their lilypads.</p>'
-    },
-    board: 'rgggyrgggyrgggy',
-    classes: {'#pond, #background': 'wrap'},
-    style: {'flex-direction': 'column-reverse', 'align-content': 'center'},
-    before: "#pond {\n  display: flex;\n  flex-wrap: wrap;\n",
-    after: "}"
-  },
-  {
-    name: 'align-content 4',
-    instructions: {
-      'en': '<p>Bring the frogs home one last time by using the CSS properties you\'ve learned:</p><ul><li><code>justify-content</code></li><li><code>align-items</code></li><li><code>flex-direction</code></li><li><code>order</code></li><li><code>align-self</code></li><li><code>flex-wrap</code></li><li><code>flex-flow</code></li><li><code>align-content</code></li></ul>'
-    },
-    board: 'rggggyy',
-    style: {'flex-direction': 'column-reverse', 'flex-wrap': 'wrap-reverse', 'align-content': 'space-between', 'justify-content': 'center'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    style: {'align-self': 'center'},
+    objectToSelectorMap: {'yellowFrog1': '> :nth-child(2)', 'yellowFrog2': '> :nth-child(5)'},
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n  stack.alignItems = ASStackLayoutAlignItemsStart;\n  stack.children = @[greenFrog1, yellowFrog1, greenFrog2, greenFrog3, yellowFrog2];\n\n",
+    after: ""
   }
 ];
 
