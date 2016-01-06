@@ -2,7 +2,7 @@ var levels = [
   {
     name: 'ASStackLayoutJustifyContent 1',
     instructions: {
-      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing AsyncDisplayKit layout code! Guide this frog to the lilypad on the right by using the <code>ASStackLayoutJustifyContent</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>stack.justifyContent = ASStackLayoutJustifyContentEnd;</code> will move the frog to the right.</p>'
+      'en': '<p>Welcome to Flexbox Froggy, a game where you help Froggy and friends by writing AsyncDisplayKit layout code! Guide this frog to the lilypad on the right by using the <code>justifyContent</code> property, which aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul><p>For example, <code>stack.justifyContent = ASStackLayoutJustifyContentEnd;</code> will move the frog to the right.</p>'
     },
     board: 'g',
     style: {'justify-content': 'flex-end'},
@@ -10,44 +10,44 @@ var levels = [
     after: "  stack.children = @[greenFrog];"
   },
   {
-    name: 'justify-content 2',
+    name: 'ASStackLayoutJustifyContent 2',
     instructions: {
-      'en': '<p>Use <code>justify-content</code> again to help these frogs get to their lilypads. Remember that this CSS property aligns items horizontally and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the left side of the stack.</li><li><code>flex-end</code>: Items align to the right side of the stack.</li><li><code>center</code>: Items align at the center of the stack.</li><li><code>space-between</code>: Items display with equal spacing between them.</li><li><code>space-around</code>: Items display with equal spacing around them.</li></ul>'
+      'en': '<p>Use <code>justifyContent</code> again to help these frogs get to their lilypads. Remember that this property aligns items horizontally and accepts the following values:</p><ul><li><code>ASStackLayoutJustifyContentStart</code>: Items align to the left side of the stack.</li><li><code>ASStackLayoutJustifyContentEnd</code>: Items align to the right side of the stack.</li><li><code>ASStackLayoutJustifyContentCenter</code>: Items align at the center of the stack.</li><li><code>ASStackLayoutJustifyContentSpaceBetween  </code>: Items display with equal spacing between them.</li><li><code>ASStackLayoutJustifyContentSpaceAround</code>: Items display with equal spacing around them.</li></ul>'
     },
     board: 'gy',
     style: {'justify-content': 'center'},
-    before: "#pond {\n  display: flex;\n",
-    after: "} here"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog, yellowFrog];"
   },
   {
-    name: 'justify-content 3',
+    name: 'ASStackLayoutJustifyContent 3',
     instructions: {
-      'en': '<p>Help all three frogs find their lilypads just by using <code>justify-content</code>. This time, the lilypads have lots of space all around them.</p><p>If you find yourself forgetting the possible values for a property, you can hover over the property name to view them. Try hovering over <code>justify-content</code>.</p>'
+      'en': '<p>Help all three frogs find their lilypads just by using <code>justifyContent</code>. This time, the lilypads have lots of space all around them.</p><p>If you find yourself forgetting the possible values for a property, you can hover over the property name to view them. Try hovering over <code>justifyContent</code>.</p>'
     },
     board: 'gyr',
     style: {'justify-content': 'space-around'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'justify-content 4',
+    name: 'ASStackLayoutJustifyContent 4',
     instructions: {
-      'en': '<p>Now the lilypads on the edges have drifted to the shore, increasing the space between them. Use <code>justify-content</code>. This time, the lilypads have equal spacing between them.</p>'
+      'en': '<p>Now the lilypads on the edges have drifted to the shore, increasing the space between them. Use <code>justifyContent</code>. This time, the lilypads have equal spacing between them.</p>'
     },
     board: 'gyr',
     style: {'justify-content': 'space-between'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'align-items 1',
+    name: 'ASStackLayoutAlignItems 1',
     instructions: {
-      'en': '<p>Now use <code>align-items</code> to help the frogs get to the bottom of the pond. This CSS property aligns items vertically and accepts the following values:</p><ul><li><code>flex-start</code>: Items align to the top of the stack.</li><li><code>flex-end</code>: Items align to the bottom of the stack.</li><li><code>center</code>: Items align at the vertical center of the stack.</li><li><code>baseline</code>: Items display at the baseline of the stack.</li><li><code>stretch</code>: Items are stretched to fit the stack.</li></ul>'
+      'en': '<p>Now use <code>alignItems</code> to help the frogs get to the bottom of the pond. This property aligns items vertically and accepts the following values:</p><ul><li><code>ASStackLayoutAlignItemsStart</code>: Items align to the top of the stack.</li><li><code>ASStackLayoutAlignItemsEnd</code>: Items align to the bottom of the stack.</li><li><code>ASStackLayoutAlignItemsCenter</code>: Items align at the vertical center of the stack.</li><li><code>ASStackLayoutAlignItemsBaselineFirst</code>: Items display at the first baseline of the stack.</li><li><code>ASStackLayoutAlignItemsBaselineLast</code>: Items display at the last baseline of the stack.</li><li><code>ASStackLayoutAlignItemsStretch</code>: Items are stretched to fit the stack.</li></ul>'
     },
     board: 'gyr',
     style: {'align-items': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
     name: 'align-items 2',
