@@ -50,44 +50,34 @@ var levels = [
     after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'align-items 2',
+    name: 'ASStackLayoutAlignItems 2',
     instructions: {
-      'en': '<p>Lead the frog to the center of the pond using a combination of <code>justify-content</code> and <code>align-items</code>.</p>'
+      'en': '<p>Lead the frog to the center of the pond using a combination of <code>justifyContent</code> and <code>alignItems</code>.</p>'
     },
     board: 'g',
     style: {'justify-content': 'center', 'align-items': 'center'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog];"
   },
   {
-    name: 'align-items 3',
+    name: 'ASStackLayoutAlignItems 3',
     instructions: {
-      'en': '<p>The frogs need to cross the pond again, this time for some lilypads with plenty of space around them. Using a combination of <code>justify-content</code> and <code>align-items</code>.</p>'
+      'en': '<p>The frogs need to cross the pond again, this time for some lilypads with plenty of space around them. Using a combination of <code>justifyContent</code> and <code>alignItems</code>.</p>'
     },
     board: 'gyr',
     style: {'justify-content': 'space-around', 'align-items': 'flex-end'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];\n  stack.direction = ASStackLayoutDirectionHorizontal;\n",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
-    name: 'flex-direction 1',
+    name: 'ASStackLayoutDirection 1',
     instructions: {
-      'en': '<p>The frogs need to get in the same order as their lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the stack, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
-    },
-    board: 'gyr',
-    style: {'flex-direction': 'row-reverse'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
-  },
-  {
-    name: 'flex-direction 2',
-    instructions: {
-      'en': '<p>Help the frogs find their column of lilypads using <code>flex-direction</code>. This CSS property defines the direction items are placed in the stack, and accepts the following values:</p><ul><li><code>row</code>: Items are placed the same as the text direction.</li><li><code>row-reverse</code>: Items are placed opposite to the text direction.</li><li><code>column</code>: Items are placed top to bottom.</li><li><code>column-reverse</code>: Items are placed bottom to top.</li></ul>'
+      'en': '<p>Help the frogs find their column of lilypads using <code>direction</code>. This property defines the direction items are placed in the stack, and accepts the following values:</p><ul><li><code>ASStackLayoutDirectionVertical</code>: Items are placed vertically.</li><li><code>ASStackLayoutDirectionHorizontal</code>: Items are placed horizontally.</li></ul>'
     },
     board: 'gyr',
     style: {'flex-direction': 'column'},
-    before: "#pond {\n  display: flex;\n",
-    after: "}"
+    before: "  ASStackLayoutSpec *stack = [[ASStackLayoutSpec alloc] init];",
+    after: "  stack.children = @[greenFrog, yellowFrog, redFrog];"
   },
   {
     name: 'flex-direction 3',
