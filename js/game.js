@@ -246,7 +246,7 @@ var game = {
             var html = docs[text][game.language] || docs[text].en;
             var tooltipX = code.offset().left;
             var tooltipY = code.offset().top + code.height() + 13;
-            $('<div class="tooltip"></div>').html(html).css({top: tooltipY, left: tooltipX}).appendTo($('#instructions'));
+            $('<div class="tooltip"></div>').html(html).css({top: tooltipY, left: tooltipX}).css("max-width", "350px").appendTo($('#instructions'));
           }
         }).on('mouseleave', function() {
           $('#instructions .tooltip').remove();
