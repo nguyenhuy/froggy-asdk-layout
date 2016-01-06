@@ -263,14 +263,17 @@ var game = {
   },
 
   parseNativeCode: function(nativeCode) {
-    var re = /[a-zA-Z]+\.([a-zA-Z]+)\s*=\s*([a-zA-Z]+);/;
     var jsCode = '';
-    var matches = re.exec(nativeCode);
-    if (matches !== null && matches.length === 3) {
-      var property = nativeToJSMap[matches[1]];
-      var value = nativeToJSMap[matches[2]];
-      jsCode = property + ': ' + value + ';';
-    }
+    var lines = nativeCode.split(/\r?\n/);
+    lines.forEach(function(line) {
+      var re = /[a-zA-Z]+\.([a-zA-Z]+)\s*=\s*([a-zA-Z]+);/;
+      var matches = re.exec(line);
+      if (matches !== null && matches.length === 3) {
+        var property = nativeToJSMap[matches[1]];
+        var value = nativeToJSMap[matches[2]];
+        jsCode += property + ': ' + value + ';';
+      }
+    });
     return jsCode;
   },
   
