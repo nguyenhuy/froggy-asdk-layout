@@ -255,11 +255,20 @@ var game = {
     });
   },
 
+  resetStyles: function() {
+    $('#pond').attr('style', '');
+    $('.frog').each(function() {
+      $(this).attr('style', '');
+    });
+  },
+
   applyStyles: function() {
     var level = levels[game.level];
     var nativeCode = $('#code').val();
     var objectStyles = game.parseNativeCode(nativeCode);
     var map = level.objectToSelectorMap || {};
+    
+    game.resetStyles();
     objectStyles.forEach(function (objectStyle) {
       var selector = map[objectStyle.object] || '';
       var element = $('#pond ' +  selector);
