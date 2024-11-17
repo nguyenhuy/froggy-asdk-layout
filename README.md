@@ -1,7 +1,9 @@
 Flexbox Froggy
 =======
 
-Flexbox Froggy is a game for learning AsyncDisplayKit's layout system. Originally from [flexboxfroggy.com](http://flexboxfroggy.com).
+Flexbox Froggy is a game for learning AsyncDisplayKit's layout system. Try it out [here](https://huynguyen.dev/froggy-asdk-layout/)!
+
+Originally from [flexboxfroggy.com](http://flexboxfroggy.com).
 
 ## Original Author
 
